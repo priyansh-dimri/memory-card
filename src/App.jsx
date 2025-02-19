@@ -51,7 +51,7 @@ function App() {
     });
   }
 
-  function resetGame() {
+  function restartGame() {
     // Sets currScore to 0
     setCurrScore(0);
     // Calls shuffleCards()
@@ -66,7 +66,7 @@ function App() {
   function handleImageClick(idx) {
     // Checks repeated image click
     if (pokemons[idx].clicked === true) {
-      resetGame();
+      restartGame();
       return;
     }
 
@@ -74,9 +74,9 @@ function App() {
     incrementCurrScore();
     setMaxScore((maxScore) => Math.max(maxScore, currScore));
 
-    // Checks if all images have been clicked. If yes, call resetGame()
+    // Checks if all images have been clicked. If yes, call restartGame()
     if (currScore === 12) {
-      resetGame();
+      restartGame();
       return;
     }
 
@@ -86,7 +86,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar currScore={currScore} maxScore={maxScore} restartGame={restartGame} />
       <Game />
     </>
   );
