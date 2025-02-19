@@ -1,10 +1,10 @@
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <>
-    </>
-  )
+  const [maxScore, setMaxScore] = useState(0);
+  const [currScore, setCurrScore] = useState(0);
+  return <></>;
 }
 
-export default App
+export default App;
