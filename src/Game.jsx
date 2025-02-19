@@ -1,8 +1,16 @@
-function Game({ handleImageClick }) {
+function Game({ pokemons, handleImageClick }) {
   return (
-    <>
-      {/* Displays 12 images of pokemons using PokeAPI and uses handleImageClick on user clicking on an image */}
-    </>
+    <div id="game">
+      {pokemons.map((pokemon, idx) => {
+        <div
+          className="memory-card"
+          key={idx}
+          onClick={() => handleImageClick(idx)}
+        >
+          <img src={pokemon.image} alt={pokemon.name} className="pokemon" />
+        </div>;
+      })}
+    </div>
   );
 }
 

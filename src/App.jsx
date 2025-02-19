@@ -85,10 +85,14 @@ function App() {
   }
 
   return (
-    <>
-      <Navbar currScore={currScore} maxScore={maxScore} restartGame={restartGame} />
-      <Game />
-    </>
+    <div className="container">
+      <Navbar
+        currScore={currScore}
+        maxScore={maxScore}
+        restartGame={restartGame}
+      />
+      <Game pokemons={pokemons} handleImageClick={handleImageClick} />
+    </div>
   );
 }
 
