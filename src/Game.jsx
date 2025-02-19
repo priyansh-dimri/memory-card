@@ -2,13 +2,15 @@ function Game({ pokemons, handleImageClick }) {
   return (
     <div id="game">
       {pokemons.map((pokemon, idx) => {
-        <div
-          className="memory-card"
-          key={idx}
-          onClick={() => handleImageClick(idx)}
-        >
-          <img src={pokemon.image} alt={pokemon.name} className="pokemon" />
-        </div>;
+        return (
+          <div
+            className="memory-card"
+            key={idx}
+            onClick={() => handleImageClick(idx)}
+          >
+            <img src={pokemon.image} alt={pokemon.name} className="pokemon" />
+          </div>
+        );
       })}
     </div>
   );

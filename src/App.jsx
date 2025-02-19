@@ -9,13 +9,17 @@ function App() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
+    setMaxScore((maxScore) => Math.max(maxScore, currScore));
+  }, [currScore]);
+
+  useEffect(() => {
     async function fetchPokemonImages() {
       try {
         const response = await fetch(
           "https://pokeapi.co/api/v2/pokemon/?limit=12"
         );
 
-        const data = response.json();
+        const data = await response.json();
 
         const pokemonImages = await Promise.all(
           data.results.map(async (pokemon) => {
@@ -56,6 +60,13 @@ function App() {
     setCurrScore(0);
     // Calls shuffleCards()
     shuffleCards();
+
+    setPokemons((pokemons) =>
+      pokemons.map((pokemon) => ({
+        ...pokemon,
+        clicked: false,
+      }))
+    );
   }
 
   function incrementCurrScore() {
@@ -69,10 +80,10 @@ function App() {
       restartGame();
       return;
     }
+    pokemons[idx].clicked = true;
 
-    // Calls incrementCurrScore() and update maxScore
+    // Calls incrementCurrScore()
     incrementCurrScore();
-    setMaxScore((maxScore) => Math.max(maxScore, currScore));
 
     // Checks if all images have been clicked. If yes, call restartGame()
     if (currScore === 12) {
