@@ -1,17 +1,11 @@
-function Navbar({ currScore, maxScore, restartGame }) {
+/* eslint-disable react/prop-types */
+function Navbar({ currScore, maxScore }) {
   return (
-    <div id="navbar">
+    <>
       <div className="game-title">Memory Card Game</div>
       <div className="nav-tile curr-score">Current Score: {currScore}</div>
       <div className="nav-tile max-score">Max Score: {maxScore}</div>
-      <button
-        type="button"
-        className="nav-tile restart"
-        onClick={() => restartGame()}
-      >
-        RESTART
-      </button>
-    </div>
+    </>
   );
 }
 

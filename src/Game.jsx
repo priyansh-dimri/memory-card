@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 function Game({ pokemons, handleImageClick }) {
   return (
-    <div id="game">
+    <>
       {pokemons.map((pokemon, idx) => {
         return (
           <div
@@ -12,7 +13,7 @@ function Game({ pokemons, handleImageClick }) {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
 

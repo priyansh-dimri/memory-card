@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./Navbar";
 import Game from "./Game";
+import "./reset.css";
+import Help from "./Help";
 
 function App() {
   const [maxScore, setMaxScore] = useState(0);
@@ -102,7 +104,11 @@ function App() {
         maxScore={maxScore}
         restartGame={restartGame}
       />
-      <Game pokemons={pokemons} handleImageClick={handleImageClick} />
+      <Help restartGame={restartGame} />
+      <Game
+        pokemons={pokemons}
+        handleImageClick={handleImageClick}
+      />
     </div>
   );
 }
